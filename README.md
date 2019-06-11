@@ -6,3 +6,5 @@ tidb的系列文章以前也陆陆续续看过一些。但是已经忘了好多�
 
 二.[第一期总结](https://github.com/wty4427300/learn-tidb/blob/master/2.md)
 
+三.[因为前两篇看过所以这次只总结一下DDL]
+
