@@ -10,6 +10,8 @@ tidb的系列文章以前也陆陆续续看过一些。但是已经忘了好多�
 
 三.[因为前两篇看过所以这次只总结一下DDL](https://github.com/wty4427300/learn-tidb/blob/master/3.md)（预习资料总结）
 
+毕业事多，拖更一周
+
 go夜读活动地址（内含每期的预习资料）：
 
 https://github.com/developer-learning/reading-go/issues/382 （预告）
