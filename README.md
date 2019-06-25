@@ -10,7 +10,7 @@ tidb的系列文章以前也陆陆续续看过一些。但是已经忘了好多�
 
 三.[因为前两篇看过所以这次只总结一下DDL](https://github.com/wty4427300/learn-tidb/blob/master/3.md)（预习资料总结）
 
-四.[第二期总结](https://github.com/wty4427300/learn-tidb/blob/master/5.md)（未完成）
+四.[第二期总结](https://github.com/wty4427300/learn-tidb/blob/master/5.md)（未完成）（上班果然忙啊，哭了）
 
 
 go夜读活动地址（内含每期的预习资料）：
