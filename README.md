@@ -12,6 +12,7 @@ tidb的系列文章以前也陆陆续续看过一些。但是已经忘了好多�
 
 四.[第二期总结](https://github.com/wty4427300/learn-tidb/blob/master/5.md)（未完成）
 
+当一只快乐的鸽子
 
 go夜读活动地址（内含每期的预习资料）：
 
