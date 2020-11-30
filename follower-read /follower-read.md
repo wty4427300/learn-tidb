@@ -1,12 +1,12 @@
 # 一.follower read
 这个特性的出现出要是因为在一个raft集群中主要的有leader副本对外提供服务,
 follower主要负责时刻同步数据或者说当failover的时候投票切换leader.所以
-当操作热点数据的时候就会出现leader被打满但是follwer却冷眼旁观的情况.
+当操作热点数据的时候就会出现leader被打满但是follower却冷眼旁观的情况.
 
 第一个优化点:
 如果follower也处理客户端的读请求,这样就可以分担leader的压力.
 
-## readindex
+## read index
 1.首先考虑第一个问题,如何保证在follower读到的一定是最新的数据呢?直接读取follower上最近的committed index上的数据肯定是不行的.因为raft是quorum-based的算法(也就是说最小基数)
 ,一条log的写入成功,并不需要所有的peers都写入成功,只需要多数节点同意就可以了,所以此时有些
 follower上的本地数据还是老数据,这样就破坏线性一致性了.
@@ -21,7 +21,7 @@ follower上的本地数据还是老数据,这样就破坏线性一致性了.
 
 ## Follower Read
 最土的办法就是将请求转发给leader,然后leader返回最新的committed的数据就好,但这样只是把follower作为leader的代理而已压力还是在leader上,并没有解决问题.一个解决方案就是leader告诉
-follower最新的commit index就够了,因为无论如何,即使这个followe本地没有这条日志,最终这条日志迟早都会在本地apply.
+follower最新的commit index就够了,因为无论如何,即使这个follower本地没有这条日志,最终这条日志迟早都会在本地apply.
 
 TiDB 目前的 Follower Read 正是如此实现的，当客户端对一个 Follower 发起读请求的时候，这个 Follower 会请求此时 Leader 的 Commit Index，拿到 Leader 的最新的 Commit Index 后，等本地 Apply 到 Leader 最新的 Commit Index 后，然后将这条数据返回给客户端，非常简洁。所以我的理解这里异步处理就非常棒.
 
